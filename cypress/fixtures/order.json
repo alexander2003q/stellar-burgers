@@ -1,0 +1,13 @@
+{
+  "success": true,
+  "name": "Space флюоресцентный бургер",
+  "order": {
+    "_id": "665f4adf97ede0001d000001",
+    "status": "done",
+    "name": "Space флюоресцентный бургер",
+    "createdAt": "2024-06-04T10:00:00.000Z",
+    "updatedAt": "2024-06-04T10:01:00.000Z",
+    "number": 12345,
+    "price": 1769
+  }
+}
