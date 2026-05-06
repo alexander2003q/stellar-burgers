@@ -89,7 +89,7 @@ describe('Страница конструктора бургера', () => {
       .should('deep.equal', [BUN_ID, MAIN_ID, BUN_ID]);
 
     cy.get('[data-testid="modal"]').should('exist');
-    cy.contains(ORDER_NUMBER).should('exist');
+    cy.get('[data-testid="modal"]').contains(ORDER_NUMBER).should('exist');
 
     cy.get('[data-testid="modal-close-button"]').click();
     cy.get('[data-testid="modal"]').should('not.exist');

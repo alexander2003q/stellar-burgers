@@ -3,6 +3,7 @@ import {
   addIngredient,
   constructorReducer,
   moveIngredientDown,
+  moveIngredientUp,
   removeIngredient
 } from './constructorSlice';
 
@@ -65,7 +66,7 @@ describe('burgerConstructor slice reducer', () => {
     expect(state.ingredients).toEqual([mainTwo]);
   });
 
-  it('should handle changing ingredients order in fillings', () => {
+  it('should handle moveIngredientDown', () => {
     const stateWithIngredients = {
       bun,
       ingredients: [mainOne, mainTwo]
@@ -76,5 +77,44 @@ describe('burgerConstructor slice reducer', () => {
     );
 
     expect(state.ingredients).toEqual([mainTwo, mainOne]);
+  });
+
+  it('should not change order when moveIngredientDown on last element', () => {
+    const stateWithIngredients = {
+      bun,
+      ingredients: [mainOne, mainTwo]
+    };
+    const state = constructorReducer(
+      stateWithIngredients,
+      moveIngredientDown(1)
+    );
+
+    expect(state.ingredients).toEqual([mainOne, mainTwo]);
+  });
+
+  it('should handle moveIngredientUp', () => {
+    const stateWithIngredients = {
+      bun,
+      ingredients: [mainOne, mainTwo]
+    };
+    const state = constructorReducer(
+      stateWithIngredients,
+      moveIngredientUp(1)
+    );
+
+    expect(state.ingredients).toEqual([mainTwo, mainOne]);
+  });
+
+  it('should not change order when moveIngredientUp on first element', () => {
+    const stateWithIngredients = {
+      bun,
+      ingredients: [mainOne, mainTwo]
+    };
+    const state = constructorReducer(
+      stateWithIngredients,
+      moveIngredientUp(0)
+    );
+
+    expect(state.ingredients).toEqual([mainOne, mainTwo]);
   });
 });
