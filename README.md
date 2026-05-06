@@ -17,3 +17,16 @@
 ## Важно:
 
 Для корректной работы запросов к серверу необходимо добавить переменную BURGER_API_URL в окружение. Сама ссылка находится в файле `.env.example`.
+
+## Тесты
+
+- Unit-тесты (Jest): `npm test`
+- Unit-тесты в watch-режиме: `npm run test:watch`
+- Покрытие Jest: `npm run test:coverage`
+- E2E-тесты (Cypress, headless): `npm run cypress:run`
+- Cypress UI: `npm run cypress:open`
+
+Перед запуском Cypress поднимите приложение на `http://localhost:4000` (например, `npm start`), так как `baseUrl` для e2e-тестов настроен на этот адрес.
+
+Если Cypress в Linux/WSL не стартует с ошибкой по библиотекам (`libnss3.so`, `libnspr4.so`, `libasound.so.2`), установите системные зависимости:
+`sudo apt update && sudo apt install -y libnss3 libnspr4 libasound2t64`.
